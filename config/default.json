@@ -1,0 +1,37 @@
+{
+  "host": "localhost",
+  "port": 3030,
+  "public": "../public/",
+  "paginate": {
+    "default": 10,
+    "max": 50
+  },
+  "authentication": {
+    "secret": "0c2c73c1a820109e648797293f81b04e7de2c0ad8672a3d5dfd8bc90c37c8aaabf7d74b241d0fd2c494af0925bcb43bd655357703858681753b8cc782bf6735e944f223df2dae8e9460776db73543c1bce43624b9fa7a313aa534f387b3d42a2e4892392071d70a5ab6cca62ce83349f3a39476a98663e90ed14bab7cb8f9e8f8b66bbc1b2ba1dcdb4bb7480e3571545819af0d74d8ece67a29d3c9359bf095f48b7d597938482c4965e53013ca960adb4b7d24c68256aea30f8f1531fc44a4ce4d8ba30262cd8f804ca1a1a2048c7bbea41ed3803fdca5917e0d3d7b0ab6eadfad84c3f071cae137f32ec2de6e820343b4036f749dd67956fd64990da89a606",
+    "strategies": [
+      "jwt",
+      "local"
+    ],
+    "path": "/authentication",
+    "service": "users",
+    "jwt": {
+      "header": {
+        "typ": "access"
+      },
+      "audience": "https://yourdomain.com",
+      "subject": "anonymous",
+      "issuer": "feathers",
+      "algorithm": "HS256",
+      "expiresIn": "1d"
+    },
+    "local": {
+      "entity": "user",
+      "usernameField": "email",
+      "passwordField": "password"
+    }
+  },
+  "postgres": {
+    "client": "pg",
+    "connection": "postgres://postgres:@localhost:5432/mealplanner_feathers"
+  }
+}
